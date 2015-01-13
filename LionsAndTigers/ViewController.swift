@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
-    var myTigers: [Tiger]!
-       
+    var myTigers: [Tiger] = []
+    
     
     
     override func viewDidLoad() {
@@ -39,7 +39,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
-       myTigers.generate()
+      var randomNumber = Int(arc4random_uniform(UInt32(3)))
+      var nextTiger = myTigers[randomNumber]
+      if (nextTiger.name == nameLabel.text){
+        randomNumber = (randomNumber + 1 ) % 4
+     }
+        
+        UIView.transitionWithView(self.view, duration: 1, options: UIViewAnimationOptions.TransitionCrossDissolve,
+            animations: {
+                self.setCurrentTiger(self.myTigers[randomNumber])
+            },
+            completion: {
+                (finished: Bool) -> () in
+        })
     }
     
     func buildTigerCollection() -> [Tiger]{
@@ -62,7 +74,7 @@ class ViewController: UIViewController {
         return tigerCollection;
     }
     
-    func setCurrentTiger(myTiger: Tiger){
+    func setCurrentTiger(myTiger: Tiger) -> (){
         myImageView.image = myTiger.image
         nameLabel.text = myTiger.name
         var tigerAge=myTiger.age
