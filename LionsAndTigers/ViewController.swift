@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
     var myTigers: [Tiger] = []
+    var currentTigerIndex = 0
     
     
     
@@ -39,12 +40,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
-      var randomNumber = Int(arc4random_uniform(UInt32(3)))
-      var nextTiger = myTigers[randomNumber]
-      if (nextTiger.name == nameLabel.text){
-        randomNumber = (randomNumber + 1 ) % 4
-     }
-        
+        var randomNumber:Int
+        do{
+            randomNumber = Int(arc4random_uniform(UInt32(myTigers.count)))
+        } while randomNumber == currentTigerIndex
+      currentTigerIndex = randomNumber
+      var nextTiger = myTigers[currentTigerIndex]
+             
         UIView.transitionWithView(self.view, duration: 1, options: UIViewAnimationOptions.TransitionCrossDissolve,
             animations: {
                 self.setCurrentTiger(self.myTigers[randomNumber])
