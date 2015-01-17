@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         return tigerCollection;
     }
     
-    func setCurrentTiger(myTiger: Tiger) -> (){
+    func setCurrentTiger(myTiger: Tiger){
         myImageView.image = myTiger.image
         nameLabel.text = myTiger.name
         var tigerAge=myTiger.age
