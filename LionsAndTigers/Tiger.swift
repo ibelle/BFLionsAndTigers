@@ -18,6 +18,45 @@ struct Tiger : Printable {
     var description: String {
         return "Tiger: Name-\(name), Age-\(age), Breed-\(breed), Image-\(image)"
     }
+    func chuff() {
+        println("Tiger: Chuff Chuff")
+    }
     
 
+    func chuffANumberOfTimes (numberOfTimes:Int) {
+        for var chuff = 0; chuff < numberOfTimes; ++chuff {
+            self.chuff()
+        }
+    }
+    
+    func chuffANumberOfTimes(numberOfTimes:Int, isLoud: Bool){
+        for i in 1...numberOfTimes{
+            if (isLoud){
+                self.chuff()
+            }else{
+                println("Tiger:Purr, Purr")
+            }
+        }
+    }
+    
+    //Added Mutating to this 
+    func ageInTigerYearsFromAge(regularAge: Int) -> Int {
+        return regularAge * 3
+    }
+    
+    func randomFact() -> String {
+        let randomNumber = random() % 3
+        var randomFact:String
+        if randomNumber == 0 {
+            randomFact = "The Tiger is the biggest species in the cat family"
+        }
+        else if randomNumber == 1 {
+            randomFact = "Tigers can reach a length of 3.3 meters"
+        }
+        else {
+            randomFact = "A group of tigers is known as an 'ambush' or 'streak'"
+        }
+        return randomFact
+    }
+    
 }

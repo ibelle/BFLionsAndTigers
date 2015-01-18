@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="494" width="337" height="21"/>
+                                    <rect key="frame" x="16" y="447" width="337" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="breed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ew-4t-5Jp">
@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="552" width="337" height="21"/>
+                                    <rect key="frame" x="16" y="505" width="337" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyK-Xh-vMA">
@@ -49,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="523" width="337" height="21"/>
+                                    <rect key="frame" x="16" y="476" width="337" height="21"/>
                                 </variation>
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boP-Kz-ZZ7">
@@ -66,6 +66,17 @@
                                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 </variation>
                             </toolbar>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="random fact" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnT-73-NZH">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="534" width="342" height="66"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -75,6 +86,7 @@
                                 <exclude reference="4ew-4t-5Jp"/>
                                 <exclude reference="kyK-Xh-vMA"/>
                                 <exclude reference="boP-Kz-ZZ7"/>
+                                <exclude reference="NnT-73-NZH"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -84,6 +96,7 @@
                                 <include reference="4ew-4t-5Jp"/>
                                 <include reference="kyK-Xh-vMA"/>
                                 <include reference="boP-Kz-ZZ7"/>
+                                <include reference="NnT-73-NZH"/>
                             </mask>
                         </variation>
                     </view>
@@ -92,6 +105,7 @@
                         <outlet property="breedLabel" destination="4ew-4t-5Jp" id="SyU-1M-MVZ"/>
                         <outlet property="myImageView" destination="RDv-L8-DUK" id="eGP-0I-29B"/>
                         <outlet property="nameLabel" destination="kdV-o7-9eR" id="SPE-Jt-xo9"/>
+                        <outlet property="randomFactLabel" destination="NnT-73-NZH" id="ibC-wH-211"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
