@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var randomFactLabel: UILabel!
     
     var myTigers: [Tiger] = []
+    var myLions: [Lion] = []
     var currentTigerIndex = 0
     
     
@@ -24,8 +25,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        myTigers = buildTigerCollection()
-        
+        self.myTigers = buildTigerCollection()
+        self.myLions  =  buildLionCollection()
+
         println(myTigers)
         
         for (tiger) in myTigers {
@@ -67,22 +69,41 @@ class ViewController: UIViewController {
         tigerCollection += [tiger1]
         
         var tiger2 = Tiger(age: 6, name: "Tigger", breed: "Indochinese Tiger", image:UIImage(named: "IndochineseTiger.jpg"))
-         tiger2.age=tiger2.ageInTigerYearsFromAge(tiger2.age)
+        tiger2.age=tiger2.ageInTigerYearsFromAge(tiger2.age)
         tigerCollection += [tiger2]
         
         
         
         var tiger3 = Tiger(age: 7, name: "Jacob", breed: "Siberian Tiger", image:UIImage(named: "SiberianTiger.jpg"))
-         tiger3.age=tiger3.ageInTigerYearsFromAge(tiger3.age)
+        tiger3.age=tiger3.ageInTigerYearsFromAge(tiger3.age)
         tigerCollection += [tiger3]
         
         
         var tiger4 = Tiger(age: 8, name: "Carla", breed: "Malayan Tiger", image:UIImage(named: "MalayanTiger.jpg"))
         tiger4.age=tiger4.ageInTigerYearsFromAge(tiger4.age)
-
         tigerCollection += [tiger4]
         
         return tigerCollection;
+    }
+    
+    func buildLionCollection() -> [Lion]{
+        var lionCollection: [Lion] = [Lion]()
+        
+        var lion1 = Lion(age: 4, isAlphaMale: true, image: UIImage(named:"Lion.jpg"), name: "Musafa", subspecies: "West Arfrican")
+        var lion2 = Lion(age: 3, isAlphaMale: false, image: UIImage(named:"Lioness.jpeg"), name: "Cindy", subspecies: "Barbary")
+//        var lion3 = Lion()
+//        lion3.age = 2
+//        lion3.isAlphaMale = false
+//        lion3.name = "Leo"
+//        lion3.subspecies = "West African"
+//        lion3.image = UIImage(named: "LionCub1.jpg")
+
+       // var lion4 = Lion(age: 1, isAlphaMale: false, image: UIImage(named:"LionCub2.jpg"), name: "Musafa Jr.", subspecies: "Indian")
+        
+        lionCollection += [lion1,lion2]
+        
+        return lionCollection
+    
     }
     
     func setCurrentTiger(myTiger: Tiger){

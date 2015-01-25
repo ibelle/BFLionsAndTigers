@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0538AC9E1A7499B600ED8CA3 /* Lions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538AC9D1A7499B600ED8CA3 /* Lions.swift */; };
 		0585D8ED1A6333080028B6C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D8EC1A6333080028B6C3 /* AppDelegate.swift */; };
 		0585D8EF1A6333080028B6C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D8EE1A6333080028B6C3 /* ViewController.swift */; };
 		0585D8F21A6333080028B6C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0585D8F01A6333080028B6C3 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0538AC9D1A7499B600ED8CA3 /* Lions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lions.swift; sourceTree = "<group>"; };
 		0585D8E71A6333080028B6C3 /* LionsAndTigers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionsAndTigers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0585D8EB1A6333080028B6C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0585D8EC1A6333080028B6C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				0585D8EC1A6333080028B6C3 /* AppDelegate.swift */,
 				0585D8EE1A6333080028B6C3 /* ViewController.swift */,
+				0538AC9D1A7499B600ED8CA3 /* Lions.swift */,
 				0585D90C1A63358A0028B6C3 /* Tiger.swift */,
 				0585D8F01A6333080028B6C3 /* Main.storyboard */,
 				0585D8F31A6333080028B6C3 /* Images.xcassets */,
@@ -258,6 +261,7 @@
 				0585D8EF1A6333080028B6C3 /* ViewController.swift in Sources */,
 				0585D90D1A63358A0028B6C3 /* Tiger.swift in Sources */,
 				0585D8ED1A6333080028B6C3 /* AppDelegate.swift in Sources */,
+				0538AC9E1A7499B600ED8CA3 /* Lions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +455,7 @@
 				0585D9081A6333080028B6C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0585D9091A6333080028B6C3 /* Build configuration list for PBXNativeTarget "LionsAndTigersTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +464,7 @@
 				0585D90B1A6333080028B6C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
