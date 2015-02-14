@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     var myTigers: [Tiger] = []
     var myLions: [Lion] = []
     var currentTigerIndex = 0
+    var currentLionIndex = 0
+    
+    var currentAnimal = (species:"Tiger",index:0)
     
     
     
@@ -28,14 +31,8 @@ class ViewController: UIViewController {
         self.myTigers = buildTigerCollection()
         self.myLions  =  buildLionCollection()
 
-        println(myTigers)
         
-        for (tiger) in myTigers {
-            println("My Tiger is Named \(tiger.name) his breed is \(tiger.breed)")
-        }
-        
-        
-        setCurrentTiger(myTigers.first!)
+        setCurrentAnimalToTiger(myTigers.first!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,20 +41,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
-        var randomNumber:Int
-        do{
-            randomNumber = Int(arc4random_uniform(UInt32(myTigers.count)))
-        } while randomNumber == currentTigerIndex
-      currentTigerIndex = randomNumber
-      var nextTiger = myTigers[currentTigerIndex]
-             
-        UIView.transitionWithView(self.view, duration: 1, options: UIViewAnimationOptions.TransitionCrossDissolve,
-            animations: {
-                self.setCurrentTiger(self.myTigers[randomNumber])
-            },
-            completion: {
-                (finished: Bool) -> () in
-        })
+        updateAnimal()
+        updateView()
     }
     
     func buildTigerCollection() -> [Tiger]{
@@ -89,24 +74,27 @@ class ViewController: UIViewController {
     func buildLionCollection() -> [Lion]{
         var lionCollection: [Lion] = [Lion]()
         
-        var lion1 = Lion(age: 4, isAlphaMale: true, image: UIImage(named:"Lion.jpg"), name: "Musafa", subspecies: "West Arfrican")
+        var lion1 = Lion(age: 4, isAlphaMale: false, image: UIImage(named:"Lion.jpg"), name: "Musafa", subspecies: "West Arfrican")
         var lion2 = Lion(age: 3, isAlphaMale: false, image: UIImage(named:"Lioness.jpeg"), name: "Cindy", subspecies: "Barbary")
-//        var lion3 = Lion()
-//        lion3.age = 2
-//        lion3.isAlphaMale = false
-//        lion3.name = "Leo"
-//        lion3.subspecies = "West African"
-//        lion3.image = UIImage(named: "LionCub1.jpg")
+        var lion3 = LionCub()
+        lion3.age = 2
+        lion3.isAlphaMale = false
+        lion3.name = "Leo"
+        lion3.subspecies = "Masai"
+        lion3.image = UIImage(named: "LionCub1.jpg")
+        lion3.rubLionCubBelly()
 
        // var lion4 = Lion(age: 1, isAlphaMale: false, image: UIImage(named:"LionCub2.jpg"), name: "Musafa Jr.", subspecies: "Indian")
-        
-        lionCollection += [lion1,lion2]
+        lion1.roar()
+        lion3.changeToAlphaMale()
+        println(lion1.isAlphaMale)
+        lionCollection += [lion1,lion2,lion3]
         
         return lionCollection
     
     }
     
-    func setCurrentTiger(myTiger: Tiger){
+    func setCurrentAnimalToTiger(myTiger: Tiger){
         myImageView.image = myTiger.image
         nameLabel.text = myTiger.name
         var tigerAge=myTiger.age
@@ -115,6 +103,57 @@ class ViewController: UIViewController {
         randomFactLabel.text = myTiger.randomFact()
         randomFactLabel.hidden = false
         
+    }
+    
+    func setCurrentAnimalToLion(myLion: Lion){
+        myImageView.image = myLion.image
+        nameLabel.text = myLion.name
+        var lionAge=myLion.age
+        ageLabel.text = "\(lionAge)"
+        breedLabel.text = myLion.subspecies
+        
+        randomFactLabel.text = myLion.randomFact()
+        myLion.roar()
+        randomFactLabel.hidden = false
+    }
+
+    
+    func updateView(){
+        UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            
+            if self.currentAnimal.species == "Tiger" {
+                let tiger = self.myTigers[self.currentAnimal.index]
+                self.setCurrentAnimalToTiger(tiger);
+            }
+            else if self.currentAnimal.species == "Lion" {
+                let lion = self.myLions[self.currentAnimal.index]
+                self.setCurrentAnimalToLion(lion)
+            }
+        
+            }, completion: {
+                (finished: Bool) -> () in
+        })
+    }
+    
+    func updateAnimal (){
+        switch currentAnimal {
+        case ("Tiger", _) :
+            var randomIndex:Int
+            do{
+             randomIndex = Int(arc4random_uniform(UInt32(myLions.count)))
+            } while randomIndex == currentLionIndex
+            
+            currentLionIndex = randomIndex
+            currentAnimal = ("Lion", currentLionIndex)
+        default :
+            var randomIndex:Int
+            do{
+                randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+            } while randomIndex == currentTigerIndex
+            currentTigerIndex = randomIndex
+            currentAnimal = ("Tiger", currentTigerIndex)
+        }
+        println("Current Animal: \(currentAnimal)")
     }
     
 }
