@@ -74,7 +74,7 @@ class ViewController: UIViewController {
     func buildLionCollection() -> [Lion]{
         var lionCollection: [Lion] = [Lion]()
         
-        var lion1 = Lion(age: 4, isAlphaMale: false, image: UIImage(named:"Lion.jpg"), name: "Musafa", subspecies: "West Arfrican")
+        var lion1 = Lion(age: 4, isAlphaMale: true, image: UIImage(named:"Lion.jpg"), name: "Musafa", subspecies: "West Arfrican")
         var lion2 = Lion(age: 3, isAlphaMale: false, image: UIImage(named:"Lioness.jpeg"), name: "Cindy", subspecies: "Barbary")
         var lion3 = LionCub()
         lion3.age = 2
@@ -84,11 +84,12 @@ class ViewController: UIViewController {
         lion3.image = UIImage(named: "LionCub1.jpg")
         lion3.rubLionCubBelly()
 
-       // var lion4 = Lion(age: 1, isAlphaMale: false, image: UIImage(named:"LionCub2.jpg"), name: "Musafa Jr.", subspecies: "Indian")
+        var lion4 = LionCub(age: 1, isAlphaMale: false, image: UIImage(named:"LionCub2.jpeg"), name: "Nala", subspecies: "Transval")
+        lion4.rubLionCubBelly()
         lion1.roar()
         lion3.changeToAlphaMale()
         println(lion1.isAlphaMale)
-        lionCollection += [lion1,lion2,lion3]
+        lionCollection += [lion1,lion2,lion3,lion4]
         
         return lionCollection
     
